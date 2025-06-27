@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GradosComponent } from './grados.component';
+import { AsignarGradosComponent } from './asignar-grados.component';
 
-describe('GradosComponent', () => {
-  let component: GradosComponent;
-  let fixture: ComponentFixture<GradosComponent>;
+describe('AsignarGradosComponent', () => {
+  let component: AsignarGradosComponent;
+  let fixture: ComponentFixture<AsignarGradosComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GradosComponent ]
+      declarations: [ AsignarGradosComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(GradosComponent);
+    fixture = TestBed.createComponent(AsignarGradosComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
