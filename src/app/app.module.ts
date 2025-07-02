@@ -21,6 +21,8 @@ import { AsignarGradosComponent } from './vistas/profesor/asignar-grados/asignar
 import { AsignarProfesorComponent } from './vistas/profesor/asignar-profesor/asignar-profesor.component';
 import { CrearProfesorComponent } from './vistas/profesor/crear-profesor/crear-profesor.component';
 import { ListarProfesorComponent } from './vistas/profesor/listar-profesor/listar-profesor.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { ListarProfesorComponent } from './vistas/profesor/listar-profesor/lista
   ],
   imports: [
     BrowserModule,
+    CommonModule,
+    FormsModule,
     RouterModule.forRoot(routes)
   ],
   bootstrap: [AppComponent]
