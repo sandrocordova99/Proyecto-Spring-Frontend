@@ -1,33 +1,55 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { routes } from './app.routes';
-import { ListarAlumnosComponent } from './vistas/alumnos/listar-alumnos/listar-alumnos.component';
 import { AppComponent } from './app.component';
-import { AlumnoEditDTOComponent } from './DTO/alumnoDTO/alumno-edit-dto/alumno-edit-dto.component';
-import { AlumnoGradoResponseDTOComponent } from './DTO/alumnoDTO/alumno-grado-response-dto/alumno-grado-response-dto.component';
-import { RequestAlumnoDTOComponent } from './DTO/alumnoDTO/request-alumno-dto/request-alumno-dto.component';
-import { ResponseAlumnoDTOComponent } from './DTO/alumnoDTO/response-alumno-dto/response-alumno-dto.component';
-import { CategoriaRequestDTOComponent } from './DTO/categoriaDTO/categoria-request-dto/categoria-request-dto.component';
+import { routes } from './app.routes';
 
-// Importá tus componentes acá
+// Importá todos tus componentes usados en las rutas:
+import { ListarAlumnosComponent } from './vistas/alumnos/listar-alumnos/listar-alumnos.component';
+import { CrearAlumnosComponent } from './vistas/alumnos/crear-alumnos/crear-alumnos.component';
+import { ActualizarAlumnosComponent } from './vistas/alumnos/actualizar-alumnos/actualizar-alumnos.component';
+import { LoginComponent } from './vistas/auth/login/login.component';
+import { CategoriasComponent } from './vistas/categorias/categorias.component';
+import { CrearCursosComponent } from './vistas/cursos/crear-cursos/crear-cursos.component';
+import { ListarCursosComponent } from './vistas/cursos/listar-cursos/listar-cursos.component';
+import { AsignarAlumnosComponent } from './vistas/grados/asignar-alumnos/asignar-alumnos.component';
+import { CrearGradosComponent } from './vistas/grados/crear-grados/crear-grados.component';
+import { ListarGradosComponent } from './vistas/grados/listar-grados/listar-grados.component';
+import { AsignarCursosComponent } from './vistas/grados/asignar-cursos/asignar-cursos.component';
+import { AsignarCategoriasComponent } from './vistas/profesor/asignar-categorias/asignar-categorias.component';
+import { AsignarGradosComponent } from './vistas/profesor/asignar-grados/asignar-grados.component';
+import { AsignarProfesorComponent } from './vistas/profesor/asignar-profesor/asignar-profesor.component';
+import { CrearProfesorComponent } from './vistas/profesor/crear-profesor/crear-profesor.component';
+import { ListarProfesorComponent } from './vistas/profesor/listar-profesor/listar-profesor.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListarAlumnosComponent,
-    AlumnoEditDTOComponent,
-    AlumnoGradoResponseDTOComponent,
-    RequestAlumnoDTOComponent,
-    ResponseAlumnoDTOComponent,
-    CategoriaRequestDTOComponent
-    // y demás componentes
+    CrearAlumnosComponent,
+    ActualizarAlumnosComponent,
+    LoginComponent,
+    CategoriasComponent,
+    CrearCursosComponent,
+    ListarCursosComponent,
+    AsignarAlumnosComponent,
+    CrearGradosComponent,
+    ListarGradosComponent,
+    AsignarCursosComponent,
+    AsignarCategoriasComponent,
+    AsignarGradosComponent,
+    AsignarProfesorComponent,
+    CrearProfesorComponent,
+    ListarProfesorComponent,
   ],
   imports: [
     BrowserModule,
+    CommonModule,
+    FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

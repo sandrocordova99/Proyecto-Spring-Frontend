@@ -1,5 +1,5 @@
 import { RolesEnum } from "../RolesEnum";
-import { AlumnoGradoRespondeDTO } from "./alumno-grado-responde-dto";
+import { AlumnoGradoRespondeDTO } from "./AlumnoGradoRespondeDTO";
 
 export interface ResponseAlumnoDTO {
     nombre: string,
