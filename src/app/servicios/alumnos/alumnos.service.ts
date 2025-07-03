@@ -10,7 +10,7 @@ import { RequestAlumnoDTO } from 'src/app/modelos/alumnos/RequestAlumnoDTO';
 export class AlumnosService {
 
   constructor(private http: HttpClient) { }
-
+  
   url = "http://localhost:8080/alu"
 
   listarAlumnos(): Observable<any> {

@@ -15,13 +15,20 @@ import { AsignarGradosComponent } from './vistas/profesor/asignar-grados/asignar
 import { AsignarProfesorComponent } from './vistas/profesor/asignar-profesor/asignar-profesor.component';
 import { CrearProfesorComponent } from './vistas/profesor/crear-profesor/crear-profesor.component';
 import { ListarProfesorComponent } from './vistas/profesor/listar-profesor/listar-profesor.component';
+import { AdministradoresComponent } from './vistas/administradores/administradores.component';
+import { IndexComponent } from './vistas/index/index/index.component';
 
 export const routes: Routes = [
+    //alumnos
+    { path: 'index', component: IndexComponent },
 
     //alumnos
     { path: 'listarAlumnos', component: ListarAlumnosComponent },
     { path: 'crearAlumnos', component: CrearAlumnosComponent },
     { path: 'actualizarAlumnos', component: ActualizarAlumnosComponent },
+
+    //admin
+    { path: 'listarAdmins', component: AdministradoresComponent },
 
     //auth
     { path: 'login', component: LoginComponent },
