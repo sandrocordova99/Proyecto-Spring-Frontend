@@ -23,7 +23,11 @@ import { CrearProfesorComponent } from './vistas/profesor/crear-profesor/crear-p
 import { ListarProfesorComponent } from './vistas/profesor/listar-profesor/listar-profesor.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { IndexComponent } from './vistas/index/index/index.component';
+import { AuthInterceptor } from './interceptores/auth.interceptor';
+import { ErrorInterceptor } from './interceptores/error.interceptor';
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,11 +47,25 @@ import { FormsModule } from '@angular/forms';
     AsignarProfesorComponent,
     CrearProfesorComponent,
     ListarProfesorComponent,
+    IndexComponent,
+  ],
+   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true
+    }
   ],
   imports: [
     BrowserModule,
     CommonModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
   bootstrap: [AppComponent]
