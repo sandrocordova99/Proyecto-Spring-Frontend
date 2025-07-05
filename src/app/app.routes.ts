@@ -27,15 +27,15 @@ export const routes: Routes = [
     //alumnos
     {
         path: 'listarAlumnos', component: ListarAlumnosComponent, canActivate: [AuthGuard],
-        data: { roles: ['ROLE_ALUMNOS'] }
+        data: { roles: ['ROLE_ALUMNO'] }
     },
     {
         path: 'crearAlumnos', component: CrearAlumnosComponent, canActivate: [AuthGuard],
-        data: { roles: ['ROLE_ALUMNOS'] }
+        data: { roles: ['ROLE_ALUMNO'] }
     },
     {
         path: 'actualizarAlumnos', component: ActualizarAlumnosComponent, canActivate: [AuthGuard],
-        data: { roles: ['ROLE_ALUMNOS'] }
+        data: { roles: ['ROLE_ALUMNO'] }
     },
 
     //admin

@@ -8,6 +8,7 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
+import { AuthServiceService } from 'src/app/servicios/seguridad/auth-service.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,14 +16,21 @@ import { jwtDecode } from 'jwt-decode';
 
 export class AuthGuard implements CanActivate {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authService: AuthServiceService) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    const token = localStorage.getItem('token');
+    const token = this.authService.obtenerToken();
+
+    /* console.log('Token guardado:', this.authService.obtenerToken());
+    console.log('🔥 GUARD EJECUTÁNDOSE');
+    console.log('🔥 Token existe:', !!localStorage.getItem('token'));
+    console.log('🔥 Ruta destino:', state.url);
+    console.log('🔥 Roles requeridos:', route.data['roles']);*/
+
 
     //Si no hay token pal login
     if (!token) {
@@ -33,6 +41,8 @@ export class AuthGuard implements CanActivate {
     try {
       //lee el token 
       const decoded: any = jwtDecode(token);
+
+
 
       //verificar si es uno o muchos roles
       const roles: string[] = Array.isArray(decoded.roles)
@@ -58,7 +68,7 @@ export class AuthGuard implements CanActivate {
 
 
       //si hay rol se va para la ruta del rol
-      return true;  
+      return true;
 
     } catch (err) {
       this.router.navigate(['/login']);
