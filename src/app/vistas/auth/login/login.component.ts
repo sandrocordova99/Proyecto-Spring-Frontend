@@ -4,7 +4,7 @@ import { jwtDecode } from 'jwt-decode';
 import { UsuariosLogin } from 'src/app/modelos/UsuariosLogin';
 import { AutenticacionService } from 'src/app/servicios/auth/autenticacion.service';
 import { AuthServiceService } from 'src/app/servicios/seguridad/auth-service.service';
-
+ 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -37,7 +37,7 @@ export class LoginComponent {
 
           //3.guardo el token
           this.authService.guardarToken(token);
-            
+
 
           try {
             //4.extraigo los roles del token
@@ -55,20 +55,14 @@ export class LoginComponent {
             }
 
             //5.fijo las rutas luego del logeo
-            for (const rol of roles) {
-              switch (rol) {
-                case 'ROLE_ADMIN':
-                  this.router.navigate(['/listarAdmins']);
-                  break;
-                case 'ROLE_ALUMNOS':
-                  this.router.navigate(['/listarAlumnos']);
-                  break;
-                case 'ROLE_PROFESOR':
-                  this.router.navigate(['/listarProfesor']);
-                  break;
-                default:
-                  this.router.navigate(['/index']);
-              }
+            if (roles.includes('ROLE_ADMIN')) {
+              this.router.navigate(['/listarAdmins']);
+            } else if (roles.includes('ROLE_PROFESOR')) {
+              this.router.navigate(['/listarProfesor']);
+            } else if (roles.includes('ROLE_ALUMNO')) {
+              this.router.navigate(['/listarAlumnos']);
+            } else {
+              this.router.navigate(['/index']);
             }
           } catch (error) {
             console.error('Error al decodificar el token:', error);
