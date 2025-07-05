@@ -17,18 +17,32 @@ import { CrearProfesorComponent } from './vistas/profesor/crear-profesor/crear-p
 import { ListarProfesorComponent } from './vistas/profesor/listar-profesor/listar-profesor.component';
 import { AdministradoresComponent } from './vistas/administradores/administradores.component';
 import { IndexComponent } from './vistas/index/index/index.component';
+import { AuthGuard } from './guardianes/auth.guard';
 
 export const routes: Routes = [
-    //alumnos
+
+    //Default
     { path: 'index', component: IndexComponent },
 
     //alumnos
-    { path: 'listarAlumnos', component: ListarAlumnosComponent },
-    { path: 'crearAlumnos', component: CrearAlumnosComponent },
-    { path: 'actualizarAlumnos', component: ActualizarAlumnosComponent },
+    {
+        path: 'listarAlumnos', component: ListarAlumnosComponent, canActivate: [AuthGuard],
+        data: { roles: ['ROLE_ALUMNOS'] }
+    },
+    {
+        path: 'crearAlumnos', component: CrearAlumnosComponent, canActivate: [AuthGuard],
+        data: { roles: ['ROLE_ALUMNOS'] }
+    },
+    {
+        path: 'actualizarAlumnos', component: ActualizarAlumnosComponent, canActivate: [AuthGuard],
+        data: { roles: ['ROLE_ALUMNOS'] }
+    },
 
     //admin
-    { path: 'listarAdmins', component: AdministradoresComponent },
+    {
+        path: 'listarAdmins', component: AdministradoresComponent, canActivate: [AuthGuard],
+        data: { roles: ['ROLE_ADMIN'] }
+    },
 
     //auth
     { path: 'login', component: LoginComponent },
@@ -48,11 +62,26 @@ export const routes: Routes = [
     { path: 'asignarCursos', component: AsignarCursosComponent },
 
     //Profesor
-    { path: 'asignarCategorias', component: AsignarCategoriasComponent },
-    { path: 'asignarGrados', component: AsignarGradosComponent },
-    { path: 'asignarProfesor', component: AsignarProfesorComponent },
-    { path: 'crearProfesor', component: CrearProfesorComponent },
-    { path: 'listarProfesor', component: ListarProfesorComponent },
+    {
+        path: 'asignarCategorias', component: AsignarCategoriasComponent, canActivate: [AuthGuard],
+        data: { roles: ['ROLE_PROFESOR'] }
+    },
+    {
+        path: 'asignarGrados', component: AsignarGradosComponent, canActivate: [AuthGuard],
+        data: { roles: ['ROLE_PROFESOR'] }
+    },
+    {
+        path: 'asignarProfesor', component: AsignarProfesorComponent, canActivate: [AuthGuard],
+        data: { roles: ['ROLE_PROFESOR'] }
+    },
+    {
+        path: 'crearProfesor', component: CrearProfesorComponent, canActivate: [AuthGuard],
+        data: { roles: ['ROLE_PROFESOR'] }
+    },
+    {
+        path: 'listarProfesor', component: ListarProfesorComponent, canActivate: [AuthGuard],
+        data: { roles: ['ROLE_PROFESOR'] }
+    },
 
 
 
@@ -61,6 +90,5 @@ export const routes: Routes = [
 
 
 
-    // Añadí tus rutas
-    { path: '', redirectTo: 'alumnos', pathMatch: 'full' }
+
 ];
