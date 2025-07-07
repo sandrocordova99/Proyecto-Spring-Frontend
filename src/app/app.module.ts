@@ -30,6 +30,7 @@ import { ErrorInterceptor } from './interceptores/error.interceptor';
 import { AdmindashComponent } from './vistas/administradores/index/admindash/admindash.component';
 import { AlumndashComponent } from './vistas/alumnos/dash-alumnos/alumndash/alumndash.component';
 import { ProfedashComponent } from './vistas/profesor/dash-profes/profedash/profedash.component';
+import { NavalumnosComponent } from './vistas/alumnos/nav-alumnos/navalumnos/navalumnos.component';
  
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { ProfedashComponent } from './vistas/profesor/dash-profes/profedash/prof
     AdmindashComponent,
     AlumndashComponent,
     ProfedashComponent,
+    NavalumnosComponent,
   ],
    providers: [
     {
