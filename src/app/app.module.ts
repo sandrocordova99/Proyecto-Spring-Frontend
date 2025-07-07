@@ -27,6 +27,9 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { IndexComponent } from './vistas/index/index/index.component';
 import { AuthInterceptor } from './interceptores/auth.interceptor';
 import { ErrorInterceptor } from './interceptores/error.interceptor';
+import { AdmindashComponent } from './vistas/administradores/index/admindash/admindash.component';
+import { AlumndashComponent } from './vistas/alumnos/dash-alumnos/alumndash/alumndash.component';
+import { ProfedashComponent } from './vistas/profesor/dash-profes/profedash/profedash.component';
  
 @NgModule({
   declarations: [
@@ -48,6 +51,9 @@ import { ErrorInterceptor } from './interceptores/error.interceptor';
     CrearProfesorComponent,
     ListarProfesorComponent,
     IndexComponent,
+    AdmindashComponent,
+    AlumndashComponent,
+    ProfedashComponent,
   ],
    providers: [
     {

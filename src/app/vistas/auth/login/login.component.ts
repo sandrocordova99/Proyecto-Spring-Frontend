@@ -4,7 +4,7 @@ import { jwtDecode } from 'jwt-decode';
 import { UsuariosLogin } from 'src/app/modelos/UsuariosLogin';
 import { AutenticacionService } from 'src/app/servicios/auth/autenticacion.service';
 import { AuthServiceService } from 'src/app/servicios/seguridad/auth-service.service';
- 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -56,11 +56,14 @@ export class LoginComponent {
 
             //5.fijo las rutas luego del logeo
             if (roles.includes('ROLE_ADMIN')) {
-              this.router.navigate(['/listarAdmins']);
+              this.router.navigate(['/dashAdmins']);
+
             } else if (roles.includes('ROLE_PROFESOR')) {
-              this.router.navigate(['/listarProfesor']);
+              this.router.navigate(['/dashProfesor']);
+
             } else if (roles.includes('ROLE_ALUMNO')) {
-              this.router.navigate(['/listarAlumnos']);
+              this.router.navigate(['/dashAlumnos']);
+
             } else {
               this.router.navigate(['/index']);
             }

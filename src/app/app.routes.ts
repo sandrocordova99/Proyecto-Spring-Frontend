@@ -18,6 +18,9 @@ import { ListarProfesorComponent } from './vistas/profesor/listar-profesor/lista
 import { AdministradoresComponent } from './vistas/administradores/administradores.component';
 import { IndexComponent } from './vistas/index/index/index.component';
 import { AuthGuard } from './guardianes/auth.guard';
+import { AlumndashComponent } from './vistas/alumnos/dash-alumnos/alumndash/alumndash.component';
+import { AdmindashComponent } from './vistas/administradores/index/admindash/admindash.component';
+import { ProfedashComponent } from './vistas/profesor/dash-profes/profedash/profedash.component';
 
 export const routes: Routes = [
 
@@ -25,6 +28,10 @@ export const routes: Routes = [
     { path: 'index', component: IndexComponent },
 
     //alumnos
+    {
+        path: 'dashAlumnos', component: AlumndashComponent, canActivate: [AuthGuard],
+        data: { roles: ['ROLE_ALUMNO'] }
+    },
     {
         path: 'listarAlumnos', component: ListarAlumnosComponent, canActivate: [AuthGuard],
         data: { roles: ['ROLE_ALUMNO'] }
@@ -41,6 +48,11 @@ export const routes: Routes = [
     //admin
     {
         path: 'listarAdmins', component: AdministradoresComponent, canActivate: [AuthGuard],
+        data: { roles: ['ROLE_ADMIN'] },
+
+    },
+    {
+        path: 'dashAdmins', component: AdmindashComponent, canActivate: [AuthGuard],
         data: { roles: ['ROLE_ADMIN'] }
     },
 
@@ -80,6 +92,10 @@ export const routes: Routes = [
     },
     {
         path: 'listarProfesor', component: ListarProfesorComponent, canActivate: [AuthGuard],
+        data: { roles: ['ROLE_PROFESOR'] }
+    },
+    {
+        path: 'dashProfesor', component: ProfedashComponent, canActivate: [AuthGuard],
         data: { roles: ['ROLE_PROFESOR'] }
     },
 
