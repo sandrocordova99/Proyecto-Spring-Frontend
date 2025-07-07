@@ -62,7 +62,7 @@ export class AuthGuard implements CanActivate {
 
       //Si el usuario no tiene permiso, lo redirige a una vista tipo no-autorizado y devuelve false para bloquear el acceso.
       if (!tienePermiso) {
-        this.router.navigate(['/no-autorizado']);
+        this.router.navigate(['/index']);
         return false;
       }
 
